@@ -34,6 +34,13 @@ function listePays(){
         liste.innerHTML +='<option value="'+tab[i]+'">'+tab[i]+'</option>';
     }
 }
+//Façon Florian
+// function listePays(){
+//     let liste = ['France','Espange','Italie','Allemagne','Belgique'];
+//     for(let i=0;i<=liste.length;i++){
+//         document.getElementById('pays').innerHTML+= '<option value="'+liste[i]+'">'+liste[i]+'</option>';
+//     }
+// }
 function verifLength(element,longueur){
     let valeur = element.value;
     if(valeur.length >= longueur){
@@ -168,3 +175,29 @@ function verifForm(){
 listeAge(12,70);
 verifAge();
 listePays();
+(function(){
+    let httpRequest;
+    document.getElementById('ajax').addEventListener('click', makeRequest)
+
+    function makeRequest(){
+        httpRequest = new XMLHttpRequest()
+
+        if(!httpRequest){
+            console.log("erreur lors de la création de l'instance")
+            return false
+        }
+        httpRequest.onreadystatechange = traiterRequete
+        httpRequest.open('GET', 'ajax.html')
+        httpRequest.send()
+    }
+    function traiterRequete(){
+        if(httpRequest.readyState === XMLHttpRequest.DONE){
+            if(httpRequest.status === 200){
+                document.getElementById('retour_ajax').innerHTML = httpRequest.responseText
+            }else{
+                console.log('erreur avec la requete')
+            }
+        }
+    }
+
+})()
