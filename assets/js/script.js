@@ -23,6 +23,17 @@ function listeAge(min,max){
         console.log("Attention problème avec les valeurs pour l'age");
     }
 }
+function listePays(){
+    let liste = document.getElementById('pays');
+    var tab = new Array();
+    tab[0]="France";
+    tab[1]="Belgique";
+    tab[2]="Brésil";
+    tab[3]="Suisse";
+    for( let i = 0;i<=tab.length;i++){
+        liste.innerHTML +='<option value="'+tab[i]+'">'+tab[i]+'</option>';
+    }
+}
 function verifLength(element,longueur){
     let valeur = element.value;
     if(valeur.length >= longueur){
@@ -90,6 +101,13 @@ function verifAge(){
         document.getElementById('message').innerText = "Vous avez l'age nécessaire";
         document.getElementById('submit').removeAttribute('disabled');
         document.getElementById('submit').innerText = 'Inscription';
+        if(age.value < 21){
+            document.forms['javascript'].setAttribute('action','jeune.php');
+        } else if(age.value > 40){
+            document.forms['javascript'].setAttribute('action','vieux.php');
+        } else {
+            document.forms['javascript'].setAttribute('action','action.php');
+        }
         return true;
     } else {
         document.getElementById('submit').setAttribute('disabled','disabled');
@@ -104,6 +122,14 @@ function verifEmail(element){
         element.style.background = 'green';
     } else {
         // La regex n'est pas ok
+        element.style.background = 'red';
+    }
+}
+function verifTel(element){
+    let regex = /^[0-9]{10,10}$/i;
+    if(regex.test(element.value)){
+        element.style.background = 'green';
+    } else {
         element.style.background = 'red';
     }
 }
@@ -141,3 +167,4 @@ function verifForm(){
 }
 listeAge(12,70);
 verifAge();
+listePays();

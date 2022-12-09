@@ -20,13 +20,23 @@
         </div>
         <div class="input">
             <label for="age">Age</label>
-            <select name="age" id="age" onchange="verifAge();">
+            <select name="age" id="age" onchange="verifAge();" onchange="attributAction();">
+                
+            </select>
+        </div>
+        <div class="input">
+            <label for="pays">Pays</label>
+            <select name="pays" id="pays">
                 
             </select>
         </div>
         <div class="input">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" onblur="verifEmail(this);">
+        </div>
+        <div class="input">
+            <label for="tel">Téléphone</label>
+            <input type="tel" name="tel" id="tel" onblur="verifTel(this);">
         </div>
         <div class="input">
             <label for="password1">Mot de passe</label>
