@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours Javascript</title>
+</head>
+<body>
+    <h1>On s'amuse avec js</h1>
+    <div id="message"></div>
+    <form name="javascript" method="post" action="" onsubmit="return verifForm();">
+        <div class="input">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom">
+        </div>
+        <div class="input">
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom">
+        </div>
+        <div class="input">
+            <label for="age">Age</label>
+            <select name="age" id="age" onchange="verifAge();">
+                
+            </select>
+        </div>
+        <div class="input">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" onblur="verifEmail(this);">
+        </div>
+        <div class="input">
+            <label for="password1">Mot de passe</label>
+            <input type="password" name="password1" id="password1" onkeyup="verifLength(this,8);">
+            <button type="button" onclick="genereMdp();">Générer un mot de passe</button>
+            <button type="button" onmousedown="voirMdp();"" onmouseup="cacherMdp();">Voir</button>
+            <button type="button" onclick="affiche5mdp();">Voir pendant 5 secondes</button>
+            <button type="button" onclick="gerald();" id="btn-affiche">Afficher</button>
+        </div>
+        <div class="input">
+            <label for="password2">Répéter votre mot de passe</label>
+            <input type="password" name="password2" id="password2" onblur="verifPassword();">
+        </div>
+        <div class="input">
+            <button type="submit" name="submit" id="submit">Inscription</button>
+            <button type="reset" name="reset" id="reset">Effacer</button>
+        </div>
+    </form>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+</html>
